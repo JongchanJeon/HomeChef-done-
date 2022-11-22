@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<img src="./com/yju/2wda/2101198/controller/image/homecheflogo.png" class="img-thumbnail" alt="..." height="200" width ="200">
+	<form class="d-flex" role="search">
+        <input class="form-control me-50" type="search" placeholder="상품 검색 : " aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">검색하기</button>
+    </form><br/>
+    <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Home Chef</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">메인</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">출장 요리구매</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        2101198_WD2A_전종찬
+      </span>
+    </div>
+  </div>
+</nav>
+
+</body>
+</html>
