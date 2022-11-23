@@ -33,8 +33,8 @@
 <body>
 <!-- 로그인 회원가입 페이지 -->
 <div id ="login" class="btn-group" role="group" aria-label="Basic outlined example">
-  <button type="button" class="btn btn-outline-primary">로그인</button>
-  <button type="button" class="btn btn-outline-primary">회원가입</button>
+  <button type="button" class="btn btn-outline-primary" onclick="location='./com/yju/2wda/2101198/controller/view/user/login.jsp'">로그인</button>
+  <button type="button" class="btn btn-outline-primary" onclick="location='./com/yju/2wda/2101198/controller/view/user/join.jsp'">회원가입</button>
 </div><br/><br/><br/><br/>
 
 
