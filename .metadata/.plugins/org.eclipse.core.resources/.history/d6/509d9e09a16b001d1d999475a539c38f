@@ -1,0 +1,9 @@
+package FinalProject.action;
+
+import FinalProject.controller.Action;
+
+public class DefaultAction implements Action{
+
+
+
+}

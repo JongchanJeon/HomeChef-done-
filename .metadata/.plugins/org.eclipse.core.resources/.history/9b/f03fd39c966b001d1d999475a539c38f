@@ -1,0 +1,15 @@
+package FinalProject.model;
+
+import java.util.ArrayList;
+import java.sql.*;
+import javax.sql. *;
+
+import FinalProject.model.*;
+
+import javax.naming.*;
+public class DAO {
+	private PreparedStatemnet pstmt = null;
+	private Connection con = null;
+	
+	C
+}

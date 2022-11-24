@@ -1,0 +1,10 @@
+package FinalProject.action;
+
+public class DefaultAction {
+
+	public static void main(String[] args) {
+		System.out.println("DefaultAction 접근함");
+
+	}
+
+}
