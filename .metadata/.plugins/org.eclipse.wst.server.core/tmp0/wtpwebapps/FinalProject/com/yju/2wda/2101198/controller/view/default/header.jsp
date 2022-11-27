@@ -32,10 +32,25 @@
 </head>
 <body>
 <!-- 로그인 회원가입 페이지 -->
+<%
+	String loginstate = (String) session.getAttribute("login_now");
+	if (loginstate == "true") {
+%>
+<div id ="login" class="btn-group" role="group" aria-label="Basic outlined example">
+  <button type="button" class="btn btn-outline-primary">마이페이지</button>
+  <button type="submit" class="btn btn-outline-primary" onclick="location='./com/yju/2wda/2101198/controller/view/default/logoutAction.jsp'">로그아웃</button>
+
+</div>
+
+<%
+	}else {
+%>
 <div id ="login" class="btn-group" role="group" aria-label="Basic outlined example">
   <button type="button" class="btn btn-outline-primary" onclick="location='./com/yju/2wda/2101198/controller/view/user/login.jsp'">로그인</button>
   <button type="button" class="btn btn-outline-primary" onclick="location='./com/yju/2wda/2101198/controller/view/user/join.jsp'">회원가입</button>
-</div><br/><br/><br/><br/>
+</div>
+<% } %>
+<br/><br/><br/><br/>
 
 
 <!-- 로고, 상품검색, 네비게이션 바-->

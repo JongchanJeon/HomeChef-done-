@@ -37,7 +37,7 @@ public class LoginAction implements Action {
 			result = true;
 			session.setAttribute("login_id", login_id);
 			session.setAttribute("login_pw", login_pw);
-			session.setAttribute("login_now", true);
+			session.setAttribute("login_now", "true");
 			System.out.println("세션등록 완료 로그인");
 			System.out.println(session.getAttribute("login_id"));
 			System.out.println(session.getAttribute("login_pw"));

@@ -35,6 +35,9 @@ public class FrontController extends HttpServlet implements Servlet{
 		case "/login.be":
 			action = new LoginAction();
 			break;
+		case "/logout.be":
+			System.out.println("reach?");
+			action = new LogoutAction();
 		default:
 			action = new DefaultAction();
 		}
