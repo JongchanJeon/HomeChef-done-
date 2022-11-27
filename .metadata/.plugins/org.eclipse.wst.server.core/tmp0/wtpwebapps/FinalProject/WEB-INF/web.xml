@@ -17,11 +17,11 @@
   	<res-auth>Container</res-auth>
   </resource-ref>
   <servlet>
-  	<servlet-name>Controller</servlet-name>
-  	<servlet-class>FinalProject.controller.Controller</servlet-class>
+  	<servlet-name>FrontController</servlet-name>
+  	<servlet-class>FinalProject.controller.FrontController</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Controller</servlet-name>
+  	<servlet-name>FrontController</servlet-name>
   	<url-pattern>*.be</url-pattern>
   </servlet-mapping>
 </web-app>

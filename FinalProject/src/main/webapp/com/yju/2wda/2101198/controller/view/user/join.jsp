@@ -44,7 +44,7 @@
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">비밀번호</span>
-            <input type="text" class="form-control" placeholder="비밀번호를 입력하세요." aria-label="Username"
+            <input type="password" class="form-control" placeholder="비밀번호를 입력하세요." aria-label="Username"
                 aria-describedby="basic-addon1" name = "user_pw" required>
         </div>
 

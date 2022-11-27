@@ -26,7 +26,7 @@
 <body>
 <center><h2>회원가입 도우미</h2></center>
 <br/>
-    <form method ="post" action="../../../../../../../Controller.be?actiontype=JOIN">
+    <form method ="post" action="../../../../../../../UserJoin.be">
     	<a href="../../../../../../../index.jsp">
         <img src="../../image/homecheflogo.png" alt="이미지 로고 없음" height="200px" width="200px"
             onclick="location='/FinalProject/src/main/webapp/index.jsp'">
@@ -44,7 +44,7 @@
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">비밀번호</span>
-            <input type="text" class="form-control" placeholder="비밀번호를 입력하세요." aria-label="Username"
+            <input type="password" class="form-control" placeholder="비밀번호를 입력하세요." aria-label="Username"
                 aria-describedby="basic-addon1" name = "user_pw" required>
         </div>
 

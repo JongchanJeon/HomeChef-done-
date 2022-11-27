@@ -28,7 +28,7 @@
 <body>
 <center><h2>로그인 도우미</h2></center>
 <br/>
-<form>
+<form method ="post" action ="../../../../../../../login.be">
 <div id ="mainlogin">
 <a href="../../../../../../../index.jsp">
 <img src="../../image/homecheflogo.png" alt="이미지 로고 없음" height="200px" width ="200px" onclick="location='/FinalProject/src/main/webapp/index.jsp'">
@@ -37,11 +37,11 @@
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">아이디(id)</label>
-    <input id="inputsize" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style = {width: 200px;}>
+    <input id="inputsize" name = "user_id" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style = {width: 200px;}>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">비밀번호(password)</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="password" class="form-control" id="exampleInputPassword1" name = "user_pw">
   </div>
   <button type="submit" class="btn btn-primary">로그인</button>
   <button type="button" class="btn btn-primary" onclick="location='./join.jsp'">회원가입</button>

@@ -5,6 +5,7 @@ public class DTO {
 	public DTO() {
 		super();
 	}
+	// 회원 가입용
 	private String user_id;
 	private String user_pw;
 	private String user_number;
@@ -12,6 +13,30 @@ public class DTO {
 	private String user_address;
 	private String type;
 	private int point;
+	
+	// 로그인 용
+	private String login_id;
+	private String login_pw;
+	private boolean correct_login;
+	public String getLogin_id() {
+		return login_id;
+	}
+	public void setLogin_id(String login_id) {
+		this.login_id = login_id;
+	}
+	public String getLogin_pw() {
+		return login_pw;
+	}
+	public void setLogin_pw(String login_pw) {
+		this.login_pw = login_pw;
+	}
+	public boolean isCorrect_login() {
+		return correct_login;
+	}
+	public void setCorrect_login(boolean correct_login) {
+		this.correct_login = correct_login;
+	}
+	
 	public DTO(String user_id, String user_pw, String user_number ,String user_name, String user_address, String type, int point) {
 		super();
 		this.user_id = user_id;

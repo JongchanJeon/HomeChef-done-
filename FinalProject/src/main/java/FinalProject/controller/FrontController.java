@@ -22,7 +22,6 @@ public class FrontController extends HttpServlet implements Servlet{
 		
 		command = command.substring(command.lastIndexOf("/"));
 		
-		HttpSession session = request.getSession();
 		request.setCharacterEncoding("utf-8");
 		ActionForward forward = null;
 		Action action = null;
@@ -32,6 +31,9 @@ public class FrontController extends HttpServlet implements Servlet{
 		switch(command) {
 		case "/UserJoin.be":
 			action = new UserJoinAction();
+			break;
+		case "/login.be":
+			action = new LoginAction();
 			break;
 		default:
 			action = new DefaultAction();
