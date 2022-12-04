@@ -26,7 +26,7 @@
 <body>
     <form>
         <img src="../../image/homecheflogo.png" alt="이미지 로고 없음" height="200px" width="200px"
-            onclick="location='/FinalProject/src/main/webapp/index.jsp'">
+            onclick="location='/FinalProject/index.jsp'">
         <br />
         <h3>상품 수정</h3>
         <br />

@@ -48,24 +48,24 @@
             <div class="link_wrap">
                 <ul>
                     
-                    <li><a href="/board/lists/44">업무제휴문의</a></li>
-                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">인스타그램</a></li>
+                    <li><a href="#">깃허브</a></li>
                     <li><a href="#">이용안내</a></li>
                     <li><a href="#">개인정보취급방침</a></li>
-                    <li><a href="http://m.gosutop.com">모바일버전보기(BETA)</a></li>
+                    <li><a href="#">모바일버전보기(BETA)</a></li>
                  </ul>
              </div>
          </div>
          <div class="area_info">
 본 사이트에 표시된 데이터는 항상 실시간 업데이트되거나 정확한 것은 아니라는 것을 알려드립니다. <br>
-모든 CFD(주가, 지수, 선물) 및 암호화폐는 외환 가격 거래소가 아니라 시장 형성자(market maker)가 제공하므로 가격은 정확하지 않거나 실제 시장과 다를 수 있습니다. <br>
-또한 GrowYourInsight가 제공하는 CFD(주가,지수,선물) 및 암호화폐 프로그램 가격은 지시적이며 거래를 목적으로 사용하기에는 적합하지 않다는 것을 의미합니다.<br />
+모든 상품은 사용자가 업로드 하는 것으로 사용자와 문의하세요. <br>
+또한 HomeChef가 제공하는 서비스는 C2C형식의 서비스이므로 암거래를 목적으로 사용은 일체 금지입니다.<br />
 따라서 당사는 이 결과로 발생한 손실에 대해서는 책임지지 않습니다.<br />
 <br />
 
 
-문의: ethereummom@gmail.com 전화: 010-xxxx-xxxx <br />
-Copyrightⓒ 이더맘, All Right Reserved.
+문의: tristan6349@g.yju.ac.kr 전화: 010-3376-4433 <br />
+Copyrightⓒ 2wda_2101198_전종찬, All Right Reserved.
 
 </div>
 </div>

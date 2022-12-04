@@ -25,8 +25,6 @@ public class UserJoinAction implements Action {
 		dto.setType("user");
 		dto.setPoint(0);
 		
-		System.out.println(dto.getUser_id() + "reach?");
-		
 		boolean result = dao.userJoin(dto);
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -24,41 +25,40 @@
 </head>
 
 <body>
-    <form>
-        <img src="../../image/homecheflogo.png" alt="이미지 로고 없음" height="200px" width="200px"
-            onclick="location='/FinalProject/src/main/webapp/index.jsp'">
+    <form  method ="post" action="/FinalProject/userUpdate.be">
+        <img src="../src/main/webapp/com/yju/2wda/2101198/controller/image/homecheflogo.png" alt="이미지 로고 없음" height="200px" width="200px"
+            onclick="location='/FinalProject/index.jsp'">
         <br />
         <h3>회원 정보 수정</h3>
         <br />
-
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">아이디</span>
             <input type="text" class="form-control" placeholder="아이디를 입력하세요." aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" value = <%=session.getAttribute("login_id") %> name = "user_id" readonly>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">비밀번호</span>
-            <input type="text" class="form-control" placeholder="비밀번호를 입력하세요." aria-label="Username"
-                aria-describedby="basic-addon1">
+            <input type="password" class="form-control" placeholder="비밀번호를 입력하세요." aria-label="Username"
+                aria-describedby="basic-addon1" value = <%=session.getAttribute("loginUser_pw")%> name = "user_pw" required>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">전화번호</span>
             <input type="text" class="form-control" placeholder="전화번호를 입력하세요." aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" value = <%=session.getAttribute("loginUser_number")%> name = "user_number" required>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">닉네임</span>
             <input type="text" class="form-control" placeholder="닉네임을 입력하세요." aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" value = <%=session.getAttribute("loginUser_name")%> name = "user_name" readonly>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">주소</span>
             <input type="text" class="form-control" placeholder="주소를 입력하세요." aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" value = <%=session.getAttribute("loginUser_address")%> name = "user_address" required>
         </div>
         <br />
 

@@ -29,8 +29,8 @@
         <h2>정말로 회원 탈퇴를 하시겠습니까?</h2>
 
         <span>
-            <button type="button" class="btn btn-primary">네</button>
-            <button type="button" class="btn btn-primary">아니요</button>
+            <button type="button" class="btn btn-primary" onclick="location='../../../../../../../userDelete.be'">네</button>
+            <button type="button" class="btn btn-primary" onclick="location='../../../../../../../index.jsp'">아니요</button>
         </span>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

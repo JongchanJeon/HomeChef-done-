@@ -137,4 +137,88 @@ public class DAO {
 		 }
 		 return success;
 }
+	public boolean readUserInfo(DTO info) {
+		boolean success = false;
+		dbConnect();
+
+		String sql = "select * from user where user_id = '";
+		sql += info.getUser_id() + "'";
+		
+		System.out.println("사용자 조회 sql 문 : " + sql);		
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				info.setUser_pw(rs.getString("user_pw"));
+				info.setUser_number(rs.getString("user_number"));
+				info.setUser_name(rs.getString("user_name"));
+				info.setUser_address(rs.getString("user_address"));
+			}
+			System.out.println(info.getUser_id());
+			System.out.println(info.getUser_number());
+			System.out.println(info.getUser_name());
+			System.out.println(info.getUser_address());
+			
+			success = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		return success;
+	}
+	
+	public boolean userDelete(DTO info, String loginUser) {
+		boolean success = false;
+		dbConnect();
+		String sql = "DELETE FROM user WHERE user_id = '";
+		sql += loginUser + "'";
+		System.out.println("sql 구문 : " + sql);
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.executeUpdate();
+			success = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return success;
+		} finally {
+			disConnect();
+		}
+		return success;
+	}
+	
+	public boolean userUpdate(DTO info) {
+		boolean success = false;
+		dbConnect();
+		String sql = "UPDATE user SET user_pw = ?, user_number = ?, user_name = ?, user_address = ? where user_id = ?";
+		
+		System.out.println("update 설정");
+		System.out.println(info.getUser_id());
+		System.out.println(info.getUser_pw());
+		System.out.println(info.getUser_number());
+		System.out.println(info.getUser_name());
+		System.out.println(info.getUser_address());
+			
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, info.getUser_pw());
+			pstmt.setString(2, info.getUser_number());
+			pstmt.setString(3, info.getUser_name());
+			pstmt.setString(4, info.getUser_address());
+			pstmt.setString(5, info.getUser_id());
+			
+			pstmt.executeUpdate();
+			success = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return success;
+		} finally {
+			disConnect();
+		}
+		return success;
+	}
 }
