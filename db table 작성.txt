@@ -1,0 +1,14 @@
+user table -->
+
+CREATE TABLE user (
+	user_id VARCHAR(15) NOT NULL PRIMARY KEY,
+	user_pw VARCHAR(15) NOT NULL,
+	user_number VARCHAR(13) NOT NULL,
+	user_name VARCHAR(8) NOT NULL ,
+	user_address VARCHAR(100) NOT NULL,
+	user_type VARCHAR(10) NOT NULL DEFAULT user,
+	point	INT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE product (
+	
