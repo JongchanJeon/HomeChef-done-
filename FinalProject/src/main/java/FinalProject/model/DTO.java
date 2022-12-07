@@ -17,6 +17,13 @@ public class DTO {
 	// 로그인 용
 	private String login_id;
 	private String login_pw;
+	private String login_type;
+	public String getLogin_type() {
+		return login_type;
+	}
+	public void setLogin_type(String login_type) {
+		this.login_type = login_type;
+	}
 	private boolean correct_login;
 	public String getLogin_id() {
 		return login_id;

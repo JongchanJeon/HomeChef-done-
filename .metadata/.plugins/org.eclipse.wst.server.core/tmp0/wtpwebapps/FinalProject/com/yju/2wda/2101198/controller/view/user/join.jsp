@@ -39,7 +39,7 @@
             <span class="input-group-text" id="basic-addon1">아이디</span>
             <input type="text" class="form-control" placeholder="아이디를 입력하세요." aria-label="Username"
                 aria-describedby="basic-addon1" name = "user_id" required>
-            <button type="button" class="btn btn-primary">중복확인</button>
+            <button type="button" class="btn btn-primary" >중복확인</button>
         </div>
 
         <div class="input-group mb-3">

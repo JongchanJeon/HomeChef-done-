@@ -3,20 +3,24 @@
 
 2. 회원 가입할 때 아이디, 닉네임 중복 확인 // ajax사용
 
-3. 상품 페이지 만들기
+3. 상품 페이지 만들기 (O)
 
-4. 아이디 primary key, 닉네임 uk 설정하기
+4. 아이디 primary key, 닉네임 uk 설정하기 
 
 5. 로그인 실패시 보여지는 UI 설정하기 
 
 6. 로그인 성공하면 어떤 유저인지 알려주기 (O)
 
-7. read 할때 자바클래스 파일을 어떻게 jsp 에 변수를 호출하는지 알기 (교수님에게 물어보기)
+7. read 할때 자바클래스 파일을 어떻게 jsp 에 변수를 호출하는지 알기 (교수님에게 물어보기) (O)
 
-8. update 하는 곳에 사진 안뜸
+8. update 하는 곳에 사진 안뜸 (O)
 
-9. 상품 db 만들기
+9. 상품 db 만들기 (O)
 
-10. productList의 header, footer 위치 이상함 
+10. productList의 header, footer 위치 이상함  // header 해결 footer 아직 안됨 (O)
 
-11. 다른페이지에서 myPage.jsp 안됨 (절대경로로 바꾸기)
+11. 다른페이지에서 myPage.jsp 안됨 (절대경로로 바꾸기) (O)
+
+12. product db 한번 보기 (등록 user 표현해주기) // user_id 추가함 (O)
+
+13. 상품 추가 시 조회 올라갈수 있게 하기 

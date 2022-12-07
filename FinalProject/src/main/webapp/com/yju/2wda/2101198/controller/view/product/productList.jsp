@@ -76,8 +76,6 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </span>
     </span>
-</div>
-<div class = "container">
     <span class="card" style="width: 18rem;">
         <img src="../../image/food1.jpg" class="card-img-sop" alt="...">
         <span class="card-body">
@@ -86,24 +84,6 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </span>
     </span>
-      <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-top" alt="...">
-        <span class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </span>
-    </span>
-    <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-top" alt="...">
-        <span class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </span>
-    </span>
-</div>
-<div class = "container">
     <span class="card" style="width: 18rem;">
         <img src="../../image/food1.jpg" class="card-img-sop" alt="...">
         <span class="card-body">
@@ -112,8 +92,8 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </span>
     </span>
-      <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-top" alt="...">
+    <span class="card" style="width: 18rem;">
+        <img src="../../image/food1.jpg" class="card-img-sop" alt="...">
         <span class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -121,18 +101,19 @@
         </span>
     </span>
     <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-top" alt="...">
+        <img src="../../image/food1.jpg" class="card-img-sop" alt="...">
         <span class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </span>
     </span>
+    
 </div>
+<%@ include file ="/com/yju/2wda/2101198/controller/view/default/footer.jsp" %>
 </div>
-<div>
-<%@ include file ="../default/footer.jsp" %>
-</div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>

@@ -10,5 +10,19 @@ CREATE TABLE user (
 	point	INT NOT NULL DEFAULT 0
 );
 
-CREATE TABLE product (
 	
+
+
+product table -->
+
+CREATE TABLE product (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	filesystemName VARCHAR(30) NOT NULL,
+	originalName VARCHAR(30) NOT NULL,
+	file_type VARCHAR(30) NOT NULL,
+	file_size Int,
+	price INT NOT NULL,
+	description VARCHAR(1024) NOT NULL,
+	user_id VARCHAR(15) NOT NULL 
+);

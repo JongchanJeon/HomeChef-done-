@@ -26,7 +26,7 @@
 
 <body>
     <form  method ="post" action="/FinalProject/userUpdate.be">
-        <img src="../src/main/webapp/com/yju/2wda/2101198/controller/image/homecheflogo.png" alt="이미지 로고 없음" height="200px" width="200px"
+        <img src="/FinalProject/com/yju/2wda/2101198/controller/image/homecheflogo.png" alt="이미지 로고 없음" height="200px" width="200px"
             onclick="location='/FinalProject/index.jsp'">
         <br />
         <h3>회원 정보 수정</h3>

@@ -1,0 +1,11 @@
+package FinalProject.model;
+
+// 상품에 대한 DTO
+public class productDTO {
+	public productDTO() {
+		super();
+	}
+	private String product_name;
+	private int product_price;
+	private String product_description;
+}

@@ -8,7 +8,7 @@
 <style>
 /*푸터입니당*/
     .footer {
-        background: #fff; width: 100%; position: relative; min-width: 1200px;
+        background: #fff; width: 100%; position: static; bottom : 0;
     }
     .area_link {
         border-bottom:1px solid #eee; border-top:1px solid #e6e6e6;
@@ -47,7 +47,6 @@
         <div class="area_link">
             <div class="link_wrap">
                 <ul>
-                    
                     <li><a href="#">인스타그램</a></li>
                     <li><a href="#">깃허브</a></li>
                     <li><a href="#">이용안내</a></li>

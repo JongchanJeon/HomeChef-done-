@@ -5,8 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home Chef header</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<title>Home Chef(홈 셰프)</title>
 <style>
+	img {
+		float:left;
+	}
 	#search {
 		width : 700px;
 		padding : 20px;
@@ -36,11 +40,16 @@
 <%
 	String loginstate = (String) session.getAttribute("login_now");
 	String loginUserId = (String) session.getAttribute("login_id");
+	String loginType = (String) session.getAttribute("login_type");
 	if (loginstate == "true") {
 %>
 <div id ="login" class="btn-group" role="group" aria-label="Basic outlined example">
 	<%= loginUserId %>님 안녕하세요 ^_^
-  <button type="button" class="btn btn-outline-primary" onclick="location='./com/yju/2wda/2101198/controller/view/user/myPage.jsp'">마이페이지</button>
+	<%if (loginType.equals("admin")){ %>
+	!!!현재 관리자 모드입니다!!!
+	<button type="button" class="btn btn-danger" onclick="location='/FinalProject/userManagement.be'">회원수정</button>
+	<%} %>
+  <button type="button" class="btn btn-outline-primary" onclick="location='/FinalProject/com/yju/2wda/2101198/controller/view/user/myPage.jsp'">마이페이지</button>
   <button type="submit" class="btn btn-outline-primary" onclick="location='./com/yju/2wda/2101198/controller/view/default/logoutAction.jsp'">로그아웃</button>
 
 </div>
@@ -76,6 +85,7 @@
           <a class="nav-link active" aria-current="page" href="/FinalProject/index.jsp">메인</a>
         </li>
         <li class="nav-item">
+        <!-- showProduct.be로 이름 지어야 함 -->
           <a class="nav-link" href="/FinalProject/com/yju/2wda/2101198/controller/view/product/productList.jsp">출장 요리구매</a>
         </li>
         <%if (loginstate == "true"){ %>
@@ -91,5 +101,7 @@
   </div>
 </nav>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
+
 </html>
