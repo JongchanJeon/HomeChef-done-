@@ -13,6 +13,13 @@ public class productDTO {
 	private String product_contentType;
 	private long product_length;
 	private String product_user_id;
+	private String product_id;
+	public String getProduct_id() {
+		return product_id;
+	}
+	public void setProduct_id(String product_id) {
+		this.product_id = product_id;
+	}
 	public String getProduct_user_id() {
 		return product_user_id;
 	}

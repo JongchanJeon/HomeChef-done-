@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="FinalProject.model.productDTO" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +21,7 @@
         }
         .container {
             display: flex;
-            padding : 50px;
+            padding : 15px;
         }
         .card{
             margin : 10px;
@@ -46,71 +48,42 @@
         padding-bottom: 30px;
 
 	}
+	.card-text {
+	 	overflow : hidden; 
+	}
     </style>
 </head>
 <body>
 <%@ include file ="../default/header.jsp" %>
+<%
+	ArrayList<productDTO> productsList = (ArrayList<productDTO>) session.getAttribute("Products");
+%>
+<div>
 <div class = "item">
+	<%for(int i = 0; i < productsList.size(); i++){ 
+		if(i % 3 == 0){
+	%>
     <div class = "container">
+    <%} %>
     <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-sop" alt="...">
+        <img src="/FinalProject/com/yju/2wda/2101198/controller/image/<%=productsList.get(i).getProduct_filesystemName()%>" class="card-img-sop" width="285px" height="250px">
         <span class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title"><%=productsList.get(i).getProduct_name() %></h5>
+          <p class="card-text"><%=productsList.get(i).getProduct_description() %></p>
+          <p class ="card-text">가격 : <%=productsList.get(i).getProduct_price() %>원</p>
+          <a href="/FinalProject/com/yju/2wda/2101198/controller/view/product/showProduct.jsp?id=<%=productsList.get(i).getProduct_id() %>" class="btn btn-primary">구매하기</a>
         </span>
     </span>
-      <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-top" alt="...">
-        <span class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </span>
-    </span>
-    <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-top" alt="...">
-        <span class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </span>
-    </span>
-    <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-sop" alt="...">
-        <span class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </span>
-    </span>
-    <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-sop" alt="...">
-        <span class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </span>
-    </span>
-    <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-sop" alt="...">
-        <span class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </span>
-    </span>
-    <span class="card" style="width: 18rem;">
-        <img src="../../image/food1.jpg" class="card-img-sop" alt="...">
-        <span class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </span>
-    </span>
+    <%if(i % 3 == 2){%>
+    </div>
     
-</div>
-<%@ include file ="/com/yju/2wda/2101198/controller/view/default/footer.jsp" %>
+    <%}
+    }
+	%>
+	</div>
+
+<!-- footer 삭제함 위치 애매하게 출력됨  -->
+<!--  include file ="/com/yju/2wda/2101198/controller/view/default/footer.jsp" %> -->
 </div>
 
 

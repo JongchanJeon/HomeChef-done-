@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -24,6 +25,7 @@
 </head>
 
 <body>
+
     <form method ="post" action="../../../../../../../insertItem.be" enctype = "multipart/form-data">
         <img src="../../image/homecheflogo.png" alt="이미지 로고 없음" height="200px" width="200px"
             onclick="location='/FinalProject/index.jsp'">
@@ -34,7 +36,7 @@
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">상품 이름</span>
             <input type="text" class="form-control" placeholder="상품이름을 입력하세요." aria-label="Username"
-                aria-describedby="basic-addon1" name = "product_name">
+                aria-describedby="basic-addon1" name = "product_name" >
         </div>
 
         <div class="input-group mb-3">

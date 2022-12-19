@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "java.io.PrintWriter" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home Chef(홈 셰프)</title>
+</head>
+<body>
+
+<h1>error</h1>
+<h3>관리자에게 문의하세요!!!</h3>
+
+<a href = "/FinalProject/index.jsp">메인화면으로 돌아가기</a>
+<%
+
+	String errorCode = (String) session.getAttribute("errorCode");
+	switch (errorCode) {
+	case "1":	//로그인을 실패 했을 때
+		out.println("<script>");
+		out.println("alert('아이디와 비밀번호를 다시 확인하세요.');");
+		out.println("</script>");
+		%>
+		<jsp:forward page="/FinalProject/index.jsp" /><%
+		break;
+	}
+	
+
+%>
+
+
+</body>
+</html>

@@ -73,18 +73,69 @@ public class DAO {
 //			 }
 //		 }
 //	 }
-	//상품 READ를 위함
-	public boolean showProducts(ArrayList products) {
+	
+	
+	// 포인트 추가
+	public boolean updatePoint(String id, DTO dto, int point) {
 		boolean success = false;
 
-		String SQL = "select * from user";
+		String sql = "UPDATE user SET point = ? where user_id = '";
+		sql += id + "'";
+
+		System.out.println(sql);
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, point);
+
+			pstmt.executeUpdate();
+			success = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return success;
+		} finally {
+			disConnect();
+		}
+		return success;
+	}
+	// 포인트 조회
+	public DTO getPoint(String id, DTO DTO) {
+		boolean success = false;
+
+		String sql = "SELECT * from user where user_id = '";
+		sql += id + "'";
+
+		
+		try {
+			 pstmt = con.prepareStatement(sql);
+			 ResultSet rs = pstmt.executeQuery();
+			 
+			 while (rs.next()) {
+				DTO.setPoint(rs.getInt("point"));
+			 }
+		}catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			disConnect();
+		}
+		return DTO;
+	}
+	//장바구니 조회
+	public ArrayList<productDTO> showCart(ArrayList cart) {
+		ArrayList<productDTO> product = new ArrayList<productDTO>();
+		
 		 try {
+			 if(cart != null) {
+			 for(int i = 0; i <cart.size(); i++) {
+				String id = (String) cart.get(i);
+				String SQL = "SELECT * FROM product WHERE id = '";
+				SQL += id + "'";
 			 pstmt = con.prepareStatement(SQL);
 			 ResultSet rs = pstmt.executeQuery();
 			 
-			 
 			 while (rs.next()) {
-				productDTO DTO = new productDTO();
+				 productDTO DTO = new productDTO();
+				DTO.setProduct_id(rs.getString("id"));
 				DTO.setProduct_name(rs.getString("name"));
 				DTO.setProduct_filesystemName(rs.getString("filesystemName"));
 				DTO.setProduct_originalFileName(rs.getString("originalName"));
@@ -93,7 +144,145 @@ public class DAO {
 				DTO.setProduct_price(rs.getInt("price"));
 				DTO.setProduct_description(rs.getString("description"));
 				DTO.setProduct_user_id(rs.getString("user_id"));
-				products.add(DTO);
+				product.add(DTO);
+			 }
+		 }
+			 }
+		 }catch (SQLException e) {
+			 e.printStackTrace();
+		 }finally {
+				disConnect();		 
+		}
+		return product;
+}
+	// 개별 상품 수정할거 조회하기
+		public productDTO getProduct(String id, productDTO DTO) {
+			boolean success = false;
+
+			String sql = "SELECT * from product where id = '";
+			sql += id + "'";
+
+			
+			try {
+				 pstmt = con.prepareStatement(sql);
+				 ResultSet rs = pstmt.executeQuery();
+				 
+				 while (rs.next()) {
+					DTO.setProduct_id(rs.getString("id"));
+					DTO.setProduct_name(rs.getString("name"));
+					DTO.setProduct_filesystemName(rs.getString("filesystemName"));
+					DTO.setProduct_originalFileName(rs.getString("originalName"));
+					DTO.setProduct_contentType(rs.getString("file_type"));
+					DTO.setProduct_length(rs.getLong("file_size"));
+					DTO.setProduct_price(rs.getInt("price"));
+					DTO.setProduct_description(rs.getString("description"));
+					DTO.setProduct_user_id(rs.getString("user_id"));
+				 }
+			}catch (SQLException e) {
+				e.printStackTrace();
+				return null;
+			} finally {
+				disConnect();
+			}
+			return DTO;
+		}
+	// 상품 업데이트
+	public boolean productUpdate(String id, productDTO dto) {
+		boolean success = false;
+
+		String sql = "UPDATE product SET name = ?, price = ?, description = ? where id = '";
+		sql += id + "'";
+
+		System.out.println(sql);
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getProduct_name());
+			pstmt.setInt(2, dto.getProduct_price());
+			pstmt.setString(3, dto.getProduct_description());
+
+			pstmt.executeUpdate();
+			success = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return success;
+		} finally {
+			disConnect();
+		}
+		return success;
+	}
+	// 상품 삭제
+	public boolean productDelete(String id) {
+		boolean success = false;
+
+		String sql = "DELETE FROM product WHERE id = '";
+		sql += id + "'";
+
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.executeUpdate();
+			success = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return success;
+		} finally {
+			disConnect();
+		}
+		return success;
+	}
+	//나의 상품 조회 위함
+		public ArrayList<productDTO> myProducts(String login_id) {
+			ArrayList<productDTO> product = new ArrayList<productDTO>();
+			String SQL = "SELECT * FROM product WHERE user_id = '";
+			SQL += login_id + "'";
+			 try {
+				 pstmt = con.prepareStatement(SQL);
+				 ResultSet rs = pstmt.executeQuery();
+				 
+				 
+				 while (rs.next()) {
+					 productDTO DTO = new productDTO();
+					DTO.setProduct_id(rs.getString("id"));
+					DTO.setProduct_name(rs.getString("name"));
+					DTO.setProduct_filesystemName(rs.getString("filesystemName"));
+					DTO.setProduct_originalFileName(rs.getString("originalName"));
+					DTO.setProduct_contentType(rs.getString("file_type"));
+					DTO.setProduct_length(rs.getLong("file_size"));
+					DTO.setProduct_price(rs.getInt("price"));
+					DTO.setProduct_description(rs.getString("description"));
+					DTO.setProduct_user_id(rs.getString("user_id"));
+					product.add(DTO);
+				 }
+				 
+			 }catch (SQLException e) {
+				 e.printStackTrace();
+			 }finally {
+					disConnect();
+			}
+			 return product;
+	}
+	//상품 검색버튼을 위함
+	public ArrayList<productDTO> searchProducts(String search) {
+		ArrayList<productDTO> product = new ArrayList<productDTO>();
+		String SQL = "SELECT * FROM product WHERE name LIKE ";
+		SQL += "'%" + search + "%'";
+		 try {
+			 pstmt = con.prepareStatement(SQL);
+			 ResultSet rs = pstmt.executeQuery();
+			 
+			 
+			 while (rs.next()) {
+				 productDTO DTO = new productDTO();
+				DTO.setProduct_id(rs.getString("id"));
+				DTO.setProduct_name(rs.getString("name"));
+				DTO.setProduct_filesystemName(rs.getString("filesystemName"));
+				DTO.setProduct_originalFileName(rs.getString("originalName"));
+				DTO.setProduct_contentType(rs.getString("file_type"));
+				DTO.setProduct_length(rs.getLong("file_size"));
+				DTO.setProduct_price(rs.getInt("price"));
+				DTO.setProduct_description(rs.getString("description"));
+				DTO.setProduct_user_id(rs.getString("user_id"));
+				product.add(DTO);
 			 }
 			 
 		 }catch (SQLException e) {
@@ -101,19 +290,51 @@ public class DAO {
 		 }finally {
 				disConnect();
 		}
-		 return success;
+		 return product;
+}
+	
+	//상품 READ를 위함
+	public ArrayList<productDTO> showProducts() {
+		ArrayList<productDTO> product = new ArrayList<productDTO>();
+		String SQL = "select * from product";
+		 try {
+			 pstmt = con.prepareStatement(SQL);
+			 ResultSet rs = pstmt.executeQuery();
+			 
+			 
+			 while (rs.next()) {
+				 productDTO DTO = new productDTO();
+				DTO.setProduct_id(rs.getString("id"));
+				DTO.setProduct_name(rs.getString("name"));
+				DTO.setProduct_filesystemName(rs.getString("filesystemName"));
+				DTO.setProduct_originalFileName(rs.getString("originalName"));
+				DTO.setProduct_contentType(rs.getString("file_type"));
+				DTO.setProduct_length(rs.getLong("file_size"));
+				DTO.setProduct_price(rs.getInt("price"));
+				DTO.setProduct_description(rs.getString("description"));
+				DTO.setProduct_user_id(rs.getString("user_id"));
+				product.add(DTO);
+			 }
+			 
+		 }catch (SQLException e) {
+			 e.printStackTrace();
+		 }finally {
+				disConnect();
+		}
+		 return product;
 }
 	// 관리자 모드에서 사용자 READ를 위함
-	public boolean userManagement(ArrayList user) {
+	public ArrayList<DTO> userManagement() {
 		boolean success = false;
-
+		ArrayList<DTO> user = new ArrayList<DTO>();
 		String SQL = "select * from user";
 		 try {
 			 pstmt = con.prepareStatement(SQL);
 			 ResultSet rs = pstmt.executeQuery();
 			 
-			 DTO userDTO = new DTO();
+			 
 			 while (rs.next()) {
+				 DTO userDTO = new DTO();
 				userDTO.setUser_id(rs.getString("user_id"));
 				userDTO.setUser_pw(rs.getString("user_pw"));
 				userDTO.setUser_number(rs.getString("user_number"));
@@ -129,7 +350,7 @@ public class DAO {
 		 }finally {
 				disConnect();
 		}
-		 return success;
+		 return user;
 }
 	
 	//상품 정보를 불러오기 위함 
@@ -270,6 +491,7 @@ public class DAO {
 				info.setUser_number(rs.getString("user_number"));
 				info.setUser_name(rs.getString("user_name"));
 				info.setUser_address(rs.getString("user_address"));
+				info.setPoint(rs.getInt("point"));
 			}
 			System.out.println(info.getUser_id());
 			System.out.println(info.getUser_number());

@@ -1,0 +1,76 @@
+package FinalProject.action;
+
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import FinalProject.controller.Action;
+import FinalProject.controller.ActionForward;
+import FinalProject.model.DAO;
+import FinalProject.model.DTO;
+
+public class LoginAction implements Action {
+
+	@Override
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		DAO dao = new DAO();
+		DTO dto = new DTO();
+		
+
+		
+		HttpSession session = request.getSession();
+		
+		System.out.println("로그인 시도!");
+		System.out.println("로그인 아이디" + request.getParameter("user_id"));
+		System.out.println("로그인 비밀번호" + request.getParameter("user_pw"));
+		
+		String login_id = request.getParameter("user_id");
+		String login_pw = request.getParameter("user_pw");
+		dto.setUser_id(login_id);
+		dto.setUser_pw(login_pw);
+		
+		boolean result = false;
+		dao.tryLogin(dto, login_id, login_pw);
+		System.out.println(dto.isCorrect_login());
+		System.out.println(dto.getLogin_id());
+		System.out.println(dto.getLogin_pw());
+		if (dto.isCorrect_login()) {
+			
+			
+			session.setAttribute("loginUser_pw", dto.getUser_pw());
+			session.setAttribute("loginUser_number", dto.getUser_number());
+			session.setAttribute("loginUser_name", dto.getUser_name());
+			session.setAttribute("loginUser_address", dto.getUser_address());
+			session.setAttribute("login_point", dto.getPoint());
+			result = true;
+			session.setAttribute("login_id", login_id);
+			session.setAttribute("login_pw", login_pw);
+			session.setAttribute("login_now", "true");
+			
+			System.out.println("세션등록" + dto.getLogin_type());
+			session.setAttribute("login_type", dto.getLogin_type());
+			System.out.println("세션등록 완료 로그인");
+			System.out.println(session.getAttribute("login_id"));
+			System.out.println(session.getAttribute("login_pw"));
+			
+
+
+		}else {
+			System.out.println("로그인 실패");
+			session.setAttribute("errorCode", "1");
+		}
+		
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
+		if(result == true) {
+			forward.setPath("/index.jsp");
+		}else {
+			forward.setPath("/com/yju/2wda/2101198/controller/view/etc/error.jsp");
+		}
+		return forward;
+	}
+
+}

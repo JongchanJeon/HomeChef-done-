@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import="java.util.ArrayList" %>
+<%@ page import="FinalProject.model.productDTO" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home Chef(홈 셰프)</title>
+
+</head>
+<body>
+<%@ include file ="../default/header.jsp" %>
+<center>
+<%
+	String id = request.getParameter("id");
+
+	String login_id = (String) session.getAttribute("login_id");
+	ArrayList<productDTO> productsList = (ArrayList<productDTO>) session.getAttribute("Products");
+	for(int i = 0 ; i < productsList.size(); i++){
+		if(productsList.get(i).getProduct_id().equals(id)){
+			%>
+			<div>
+			<img src="/FinalProject/com/yju/2wda/2101198/controller/image/<%=productsList.get(i).getProduct_filesystemName()%>" class="card-img-sop" width="285px" height="250px" style ="float:none">
+			<h2><%=productsList.get(i).getProduct_name() %></h2>
+          	<p><%=productsList.get(i).getProduct_description() %></p>
+          	<p>가격 : <%=productsList.get(i).getProduct_price() %>원</p>
+         	<h3>배송지 입력</h3>
+         	<form>
+         	<div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">이름</span>
+            <input type="text" class="form-control" placeholder="아이디를 입력하세요." aria-label="Username"
+                aria-describedby="basic-addon1" name = "user_id" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">전화번호</span>
+            <input type="number" class="form-control"  min="1" max="11099999999" placeholder="전화번호를 입력하세요. ex) 01012349876" aria-label="Username"
+                aria-describedby="basic-addon1" name = "user_number"required>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">주소</span>
+            <input type="text" class="form-control" placeholder="주소를 입력하세요" aria-label="Username"
+                aria-describedby="basic-addon1" name = "user_number"required>
+        </div>
+         	<!-- 구매하기 버튼 비활성화 되 -->
+         	<button type ="submit" class="btn btn-primary" >결제하기</button>
+         	</form>
+			</div>
+		<%break;}
+	}
+%>
+</center>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home Chef(홈 셰프)</title>
+</head>
+<body>
+<h2>띠용 장바구니가 비어있습니다!</h2>
+<button onclick="history.back()">뒤로가기</button>
+</body>
+</html>

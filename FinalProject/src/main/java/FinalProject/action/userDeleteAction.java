@@ -18,9 +18,7 @@ public class userDeleteAction implements Action {
 		DAO dao = new DAO();
 		DTO dto = new DTO();
 		
-		//js alert 창을 위함
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
+
 				
 		HttpSession session = request.getSession();
 		String loginUser_id = (String) session.getAttribute("login_id");
@@ -32,12 +30,7 @@ public class userDeleteAction implements Action {
 			session.setAttribute("login_now", "false");
 			session.setAttribute("login_id", "");
 			session.setAttribute("login_pw", "");
-			out.write("<script language='javascript'>");
-			out.write("alert('회원삭제가 되었습니다.');");
-			out.write("location.href='/FinalProject/index.jsp';");
-			out.write("</script>");
-			out.flush();
-			out.close();
+
 			forward.setPath("/index.jsp");
 		}else {
 			forward.setPath("/com/yju/2wda/2101198/controller/view/etc/error.jsp");

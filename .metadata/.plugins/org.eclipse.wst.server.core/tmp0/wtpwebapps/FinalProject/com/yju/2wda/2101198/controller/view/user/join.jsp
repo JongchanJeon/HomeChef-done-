@@ -50,7 +50,7 @@
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">전화번호</span>
-            <input type="text" class="form-control" placeholder="전화번호를 입력하세요." aria-label="Username"
+            <input type="number" class="form-control"  min="1" max="11099999999" placeholder="전화번호를 입력하세요. ex) 01012349876" aria-label="Username"
                 aria-describedby="basic-addon1" name = "user_number"required>
         </div>
 

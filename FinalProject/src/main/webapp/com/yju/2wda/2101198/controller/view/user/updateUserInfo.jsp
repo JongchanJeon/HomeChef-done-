@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>Home Chef(홈 셰프)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <form  method ="post" action="/FinalProject/userUpdate.be">
+    <form  method ="post" action="./userUpdate.be">
         <img src="/FinalProject/com/yju/2wda/2101198/controller/image/homecheflogo.png" alt="이미지 로고 없음" height="200px" width="200px"
             onclick="location='/FinalProject/index.jsp'">
         <br />
@@ -45,7 +45,7 @@
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">전화번호</span>
-            <input type="text" class="form-control" placeholder="전화번호를 입력하세요." aria-label="Username"
+            <input type="number" class="form-control" min="1" max="11099999999" placeholder="전화번호를 입력하세요. ex) 01012349876" aria-label="Username"
                 aria-describedby="basic-addon1" value = <%=session.getAttribute("loginUser_number")%> name = "user_number" required>
         </div>
 

@@ -18,9 +18,6 @@ public class userUpdateAction implements Action {
 		DAO dao = new DAO();
 		DTO dto = new DTO();
 		
-		//js alert 창을 위함
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
 		
 		dto.setUser_id(request.getParameter("user_id"));
 		dto.setUser_name(request.getParameter("user_name"));
@@ -32,13 +29,7 @@ public class userUpdateAction implements Action {
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		if(result == true) {
-			out.write("<script language='javascript'>");
-			out.write("alert('회원수정이 되었습니다.');");
-			out.write("location.href='/FinalProject/index.jsp';");
-			out.write("</script>");
-			out.flush();
-			out.close();
-			forward.setPath("/index.jsp");
+						forward.setPath("/index.jsp");
 		}else {
 			forward.setPath("/com/yju/2wda/2101198/controller/view/etc/error.jsp");
 		}

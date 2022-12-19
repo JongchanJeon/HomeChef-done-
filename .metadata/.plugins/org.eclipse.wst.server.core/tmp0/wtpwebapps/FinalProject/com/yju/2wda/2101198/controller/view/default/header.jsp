@@ -47,10 +47,12 @@
 	<%= loginUserId %>님 안녕하세요 ^_^
 	<%if (loginType.equals("admin")){ %>
 	!!!현재 관리자 모드입니다!!!
-	<button type="button" class="btn btn-danger" onclick="location='/FinalProject/userManagement.be'">회원수정</button>
+	<button type="button" class="btn btn-danger" onclick="location='./userManagement.be'">회원수정</button>
 	<%} %>
+	<button type="button" class="btn btn-outline-primary" onclick="nono()">구매목록</button>
+	<button type="button" class="btn btn-outline-primary" onclick="location='./showCart.be'">장바구니</button>
   <button type="button" class="btn btn-outline-primary" onclick="location='/FinalProject/com/yju/2wda/2101198/controller/view/user/myPage.jsp'">마이페이지</button>
-  <button type="submit" class="btn btn-outline-primary" onclick="location='./com/yju/2wda/2101198/controller/view/default/logoutAction.jsp'">로그아웃</button>
+  <button type="submit" class="btn btn-outline-primary" onclick="location='/FinalProject/com/yju/2wda/2101198/controller/view/default/logoutAction.jsp'">로그아웃</button>
 
 </div>
 
@@ -58,8 +60,9 @@
 	}else {
 %>
 <div id ="login" class="btn-group" role="group" aria-label="Basic outlined example">
-  <button type="button" class="btn btn-outline-primary" onclick="location='./com/yju/2wda/2101198/controller/view/user/login.jsp'">로그인</button>
-  <button type="button" class="btn btn-outline-primary" onclick="location='./com/yju/2wda/2101198/controller/view/user/join.jsp'">회원가입</button>
+	<button type="button" class="btn btn-outline-primary" onclick="location='./showCart.be'">장바구니</button>
+  <button type="button" class="btn btn-outline-primary" onclick="location='/FinalProject/com/yju/2wda/2101198/controller/view/user/login.jsp'">로그인</button>
+  <button type="button" class="btn btn-outline-primary" onclick="location='/FinalProject/com/yju/2wda/2101198/controller/view/user/join.jsp'">회원가입</button>
 </div>
 <% } %>
 <br/><br/><br/><br/>
@@ -67,15 +70,15 @@
 
 <!-- 로고, 상품검색, 네비게이션 바-->
 <div id ="center">
-<img src="/FinalProject/com/yju/2wda/2101198/controller/image/homecheflogo.png" class="img-thumbnail" alt="..." height="150px" width ="150px">
-	<form  class="d-flex" role="search">
-        <input id = "search" class="form-control me-2" type="search" placeholder="상품 검색 : " aria-label="Search" >
+<img src="/FinalProject/com/yju/2wda/2101198/controller/image/homecheflogo.png" class="img-thumbnail" onclick="location='/FinalProject/index.jsp'" height="150px" width ="150px">
+	<form  class="d-flex" role="search" method ="post" action="./searchProduct.be">
+        <input id = "search" class="form-control me-2" type="search" placeholder="상품 검색 : " aria-label="Search" name = "search" >
         <button id = "searchbtn" class="btn btn-outline-success" type="submit">검색</button>
     </form><br/>
 
     <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Home Chef</a>
+    <a class="navbar-brand" href="/FinalProject/index.jsp">Home Chef</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -86,11 +89,14 @@
         </li>
         <li class="nav-item">
         <!-- showProduct.be로 이름 지어야 함 -->
-          <a class="nav-link" href="/FinalProject/com/yju/2wda/2101198/controller/view/product/productList.jsp">출장 요리구매</a>
+          <a class="nav-link" href="./showProduct.be">출장 요리구매</a>
         </li>
         <%if (loginstate == "true"){ %>
         <li class="nav-item">
           <a class="nav-link" href="/FinalProject/com/yju/2wda/2101198/controller/view/product/insertItem.jsp">상품 추가</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./myProducts.be">내 상품 관리</a>
         </li>
         <%} %>
       </ul>
@@ -101,6 +107,11 @@
   </div>
 </nav>
 </div>
+<script>
+	function nono() {
+		alert("활성화 되지 않은 기능입니다.");
+	}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 

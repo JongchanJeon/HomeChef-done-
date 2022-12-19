@@ -23,9 +23,7 @@ public class insertItemAction implements Action {
 		DAO dao = new DAO();
 		productDTO dto = new productDTO();
 		
-		//js alert 창을 위함
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
+
 		
 		HttpSession session = request.getSession();
 		
@@ -82,20 +80,10 @@ public class insertItemAction implements Action {
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		if(result == true) {
-			out.write("<script language='javascript'>");
-			out.write("alert('상품추가가 되었습니다.');");
-			out.write("location.href='/FinalProject/index.jsp';");
-			out.write("</script>");
-			out.flush();
-			out.close();
+
 			forward.setPath("/index.jsp");
 		}else {
-			out.write("<script language='javascript'>");
-			out.write("alert('상품추가를 실패하였습니다..');");
-			out.write("location.href='/FinalProject/com/yju/2wda/2101198/controller/view/product/insertItem.jsp';");
-			out.write("</script>");
-			out.flush();
-			out.close();
+
 			forward.setPath("/com/yju/2wda/2101198/controller/view/etc/error.jsp");
 		}
 		return forward;

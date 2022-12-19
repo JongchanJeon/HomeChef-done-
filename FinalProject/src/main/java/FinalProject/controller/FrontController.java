@@ -59,6 +59,39 @@ public class FrontController extends HttpServlet implements Servlet{
 		case "/showProduct.be":
 			action = new showProductAction();
 			break;
+		case "/searchProduct.be":
+			action = new searchProductAction();
+			break;
+		case "/myProducts.be":
+			action = new myProductsAction();
+			break;
+		case "/productDelete.be":
+			action = new productDeleteAction();
+			break;
+		case "/productUpdate.be":
+			action = new productUpdateAction();
+			break;
+		case "/getProduct.be":
+			action = new getProductAction();
+			break;
+		case "/getCart.be":
+			action = new getCartAction();
+			break;
+		case "/showCart.be":
+			action = new showCartAction();
+			break;
+		case "/point.be":
+			action = new pointAction();
+			break;
+		case "/setPoint.be":
+			action = new setPointAction();
+			break;
+		case "/checkId.be":
+			action = new checkIdAction();
+			break;
+		case "/payProduct.be":
+			action = new payProductAction();
+			break;
 		default:
 			action = new DefaultAction();
 		}

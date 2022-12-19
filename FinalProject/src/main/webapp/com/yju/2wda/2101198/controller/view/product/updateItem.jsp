@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="FinalProject.model.productDTO" %>
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +25,11 @@
 </head>
 
 <body>
-    <form>
+<% 
+	productDTO getProduct = (productDTO) session.getAttribute("getProduct");
+	String id = (String) getProduct.getProduct_id();
+%>
+    <form method ="post" action="./productUpdate.be?id=<%=id%>">
         <img src="../../image/homecheflogo.png" alt="이미지 로고 없음" height="200px" width="200px"
             onclick="location='/FinalProject/index.jsp'">
         <br />
@@ -34,19 +39,19 @@
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">상품 이름</span>
             <input type="text" class="form-control" placeholder="상품이름을 입력하세요." aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" name ="product_name" value = "<%=getProduct.getProduct_name() %>">
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">상품 가격(1인당)</span>
             <input type="text" class="form-control" placeholder="상품 가격을 입력하세요." aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" name ="product_price" value = "<%=getProduct.getProduct_price() %>">
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">상품설명</span>
-            <input type="text" class="form-control" placeholder="상품 설명을 입력하세요." aria-label="Username"
-                aria-describedby="basic-addon1" id ="productdescription">
+            <textarea class="form-control" placeholder="상품 설명을 입력하세요." aria-label="Username"
+                aria-describedby="basic-addon1" id ="product_description" name = "product_description"><%=getProduct.getProduct_description() %></textarea>
         </div>
         <div class="mb-3">
             <label for="formFile" class="form-label">이미지 파일을 올려주세요.</label>

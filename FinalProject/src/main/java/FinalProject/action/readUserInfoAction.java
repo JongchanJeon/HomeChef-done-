@@ -22,8 +22,9 @@ public class readUserInfoAction implements Action {
 		String loginUser_id = (String) session.getAttribute("login_id");
 		
 		dto.setUser_id(loginUser_id);
+		
 		dao.readUserInfo(dto);
-		System.out.println(dto.getUser_address());
+		
 		session.setAttribute("loginUser_pw", dto.getUser_pw());
 		session.setAttribute("loginUser_number", dto.getUser_number());
 		session.setAttribute("loginUser_name", dto.getUser_name());
